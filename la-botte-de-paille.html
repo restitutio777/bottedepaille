@@ -294,6 +294,13 @@
     align-items: center; justify-content: center;
     text-align: center; padding: 2rem;
   }
+  .patisserie-banner .banner-text-inner {
+    background: rgba(42,42,42,0.45);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 2.5rem 3rem;
+  }
   .patisserie-banner .banner-text .section-label { color: var(--gold-light); }
   .patisserie-banner .banner-text h2 {
     font-family: 'Playfair Display', serif;
@@ -639,9 +646,11 @@
 <div class="patisserie-banner">
   <img src="patisserie.jpg" alt="Pâtisseries maison de La Botte de Paille" loading="lazy">
   <div class="banner-text">
-    <div class="section-label">100% fait maison</div>
-    <h2>Nos pâtisseries artisanales</h2>
-    <p>Toutes nos pâtisseries sont élaborées sur place avec des produits frais du terroir aveyronnais.</p>
+    <div class="banner-text-inner">
+      <div class="section-label">100% fait maison</div>
+      <h2>Nos pâtisseries artisanales</h2>
+      <p>Toutes nos pâtisseries sont élaborées sur place avec des produits frais du terroir aveyronnais.</p>
+    </div>
   </div>
 </div>
 
