@@ -15,39 +15,38 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    /* Deep greens — from the interior walls & neon */
+    /* Greens — neon sign & plants */
     --green-deep: #1B3A2A;
-    --green: #2A5A3A;
-    --green-light: #3A7A4E;
-    --green-muted: #4A6B52;
-    --neon: #5BED6A;
-    --neon-glow: rgba(91,237,106,0.15);
+    --green: #3A6B4A;
+    --green-light: #5A8A68;
+    --green-muted: #6B8B72;
 
-    /* Golds — from the facade cladding */
-    --gold: #C4A44E;
-    --gold-light: #D4BA6E;
-    --gold-pale: #E8D9A8;
-    --gold-dark: #9A7E35;
+    /* Wood tones — pine interior */
+    --wood: #C4A46A;
+    --wood-light: #D9C499;
+    --wood-pale: #EDE4D0;
 
-    /* Neutrals */
-    --cream: #FAF8F2;
-    --cream-warm: #F5F0E4;
-    --charcoal: #1A1E1B;
-    --text: #2A2E2B;
-    --text-light: #5A6258;
+    /* Neutrals — charcoal chairs, concrete floor */
+    --charcoal: #2A2A2A;
+    --gray-dark: #3D3D3D;
+    --gray: #6B6B6B;
+    --gray-light: #9A9A9A;
+    --cream: #FAFAF7;
+    --cream-warm: #F5F2EC;
+    --warm-white: #F0EDE5;
 
-    /* Legacy aliases for easier migration */
-    --wheat: var(--gold-pale);
+    /* Legacy aliases */
+    --wheat: var(--wood-pale);
     --wheat-light: var(--cream-warm);
-    --wheat-dark: var(--gold-light);
-    --straw: var(--gold);
-    --straw-dark: var(--gold-dark);
-    --earth: var(--green-deep);
-    --earth-light: var(--green-muted);
+    --wheat-dark: var(--wood-light);
+    --straw: var(--wood);
+    --straw-dark: var(--green);
+    --earth: var(--charcoal);
+    --earth-light: var(--gray);
     --sage: var(--green);
     --sage-light: var(--green-light);
-    --terracotta: var(--gold-dark);
-    --terracotta-muted: var(--gold);
+    --terracotta: var(--green);
+    --terracotta-muted: var(--green-muted);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -67,7 +66,7 @@
     position: fixed; top: 0; width: 100%; z-index: 100;
     background: rgba(250, 248, 242, 0.95);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--gold-pale);
+    border-bottom: 1px solid var(--wood-pale);
     transition: box-shadow 0.3s;
   }
   nav.scrolled { box-shadow: 0 2px 20px rgba(92, 61, 46, 0.08); }
@@ -81,7 +80,7 @@
     font-size: 1.25rem; font-weight: 700; color: var(--earth);
     text-decoration: none; letter-spacing: -0.02em;
   }
-  nav .brand span { color: var(--gold); }
+  nav .brand span { color: var(--green); }
   nav ul {
     list-style: none; display: flex; gap: 2rem;
   }
@@ -126,10 +125,10 @@
     content: '';
     position: absolute; inset: 0; z-index: 1;
     background: linear-gradient(
-      160deg,
-      rgba(27,58,42,0.6) 0%,
-      rgba(27,58,42,0.35) 40%,
-      rgba(26,30,27,0.7) 100%
+      to bottom,
+      rgba(42,42,42,0.4) 0%,
+      rgba(27,58,42,0.35) 50%,
+      rgba(42,42,42,0.7) 100%
     );
   }
   .hero-content { position: relative; z-index: 2; max-width: 700px; }
@@ -139,7 +138,7 @@
     font-family: 'DM Sans', sans-serif;
     font-size: 0.72rem; font-weight: 600; text-transform: uppercase;
     letter-spacing: 0.2em; color: var(--wheat-light);
-    border: 1px solid rgba(196,164,78,0.45);
+    border: 1px solid rgba(255,255,255,0.3);
     padding: 0.4rem 1.2rem; border-radius: 50px;
     margin-bottom: 2rem;
     animation: fadeUp 0.8s ease both;
@@ -154,14 +153,14 @@
     animation: fadeUp 0.8s 0.15s ease both;
   }
   .hero h1 em {
-    font-style: italic; color: var(--gold-light);
+    font-style: italic; color: var(--wood-light);
     display: block; font-size: 0.55em;
     margin-top: 0.3rem;
   }
 
   .hero-divider {
     width: 60px; height: 2px;
-    background: var(--gold);
+    background: var(--green);
     margin: 1.5rem auto;
     animation: fadeUp 0.8s 0.3s ease both;
   }
@@ -191,9 +190,9 @@
     color: var(--cream); background: transparent;
     padding: 0.85rem 2rem; border-radius: 50px;
     text-decoration: none; transition: all 0.3s;
-    border: 2px solid rgba(196,164,78,0.5);
+    border: 2px solid rgba(255,255,255,0.4);
   }
-  .btn-secondary:hover { border-color: var(--gold); color: var(--gold-light); }
+  .btn-secondary:hover { border-color: rgba(255,255,255,0.7); color: #fff; }
 
   /* ── SECTIONS ── */
   section { padding: 5rem 2rem; }
@@ -271,10 +270,10 @@
     position: absolute; inset: 0;
     background: linear-gradient(
       to right,
-      rgba(27,58,42,0.65) 0%,
-      rgba(27,58,42,0.2) 40%,
-      rgba(27,58,42,0.2) 60%,
-      rgba(27,58,42,0.65) 100%
+      rgba(42,42,42,0.65) 0%,
+      rgba(42,42,42,0.15) 40%,
+      rgba(42,42,42,0.15) 60%,
+      rgba(42,42,42,0.65) 100%
     );
   }
   .patisserie-banner .banner-text {
@@ -283,7 +282,7 @@
     align-items: center; justify-content: center;
     text-align: center; padding: 2rem;
   }
-  .patisserie-banner .banner-text .section-label { color: var(--gold-light); }
+  .patisserie-banner .banner-text .section-label { color: var(--green-light); }
   .patisserie-banner .banner-text h2 {
     font-family: 'Playfair Display', serif;
     font-size: clamp(1.6rem, 3vw, 2.2rem);
@@ -351,7 +350,7 @@
   /* ── INFO / CONTACT ── */
   .info-section {
     background:
-      linear-gradient(135deg, var(--green-deep) 0%, var(--charcoal) 100%);
+      linear-gradient(135deg, var(--charcoal) 0%, var(--gray-dark) 100%);
     color: var(--cream-warm);
   }
   .info-grid {
@@ -359,7 +358,7 @@
   }
   .info-block h3 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.3rem; color: var(--gold-light);
+    font-size: 1.3rem; color: var(--wood-light);
     margin-bottom: 1rem;
   }
   .info-block p, .info-block li {
@@ -368,17 +367,17 @@
   }
   .info-block ul { list-style: none; }
   .info-block a {
-    color: var(--gold-light); text-decoration: none;
-    border-bottom: 1px solid rgba(196,164,78,0.3);
+    color: var(--wood-light); text-decoration: none;
+    border-bottom: 1px solid rgba(217,196,153,0.3);
     transition: border-color 0.3s;
   }
-  .info-block a:hover { border-color: var(--gold); }
+  .info-block a:hover { border-color: var(--wood-light); }
 
   .hours-table { width: 100%; }
   .hours-table td {
     padding: 0.3rem 0;
     font-size: 0.95rem;
-    color: rgba(250,248,242,0.65);
+    color: rgba(250,248,242,0.6);
   }
   .hours-table td:last-child { text-align: right; }
 
@@ -388,13 +387,13 @@
   .social-link {
     width: 42px; height: 42px;
     border-radius: 50%;
-    border: 1px solid rgba(196,164,78,0.3);
+    border: 1px solid rgba(255,255,255,0.15);
     display: flex; align-items: center; justify-content: center;
-    color: var(--gold-light);
+    color: var(--wood-light);
     text-decoration: none;
     transition: all 0.3s;
   }
-  .social-link:hover { background: rgba(196,164,78,0.1); border-color: var(--gold); }
+  .social-link:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.3); }
   .social-link svg { width: 18px; height: 18px; }
 
   /* ── MAP ── */
@@ -412,7 +411,7 @@
   }
   footer p {
     font-family: 'DM Sans', sans-serif;
-    font-size: 0.78rem; color: rgba(196,164,78,0.35);
+    font-size: 0.78rem; color: rgba(255,255,255,0.3);
     letter-spacing: 0.05em;
   }
 
@@ -420,7 +419,7 @@
   .price-badge {
     display: inline-flex; align-items: baseline; gap: 0.4rem;
     background: var(--green-deep);
-    color: var(--gold-light);
+    color: rgba(255,255,255,0.8);
     padding: 0.6rem 1.5rem;
     border-radius: 50px;
     margin-top: 1.5rem;
@@ -428,7 +427,7 @@
   }
   .price-badge .price {
     font-size: 1.6rem; font-weight: 700;
-    color: var(--gold);
+    color: #fff;
   }
   .price-badge .price-label {
     font-size: 0.78rem; font-weight: 500;
