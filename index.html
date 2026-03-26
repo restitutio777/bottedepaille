@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Botte de Paille — Restaurant à Naucelle, Aveyron</title>
+<meta name="description" content="Restaurant La Botte de Paille à Naucelle-Gare (Aveyron). Cuisine fraîche et locale, menu du jour, pâtisseries maison. Christophe vous accueille du lundi au samedi.">
+<meta property="og:title" content="La Botte de Paille — Restaurant à Naucelle">
+<meta property="og:description" content="Cuisine fraîche & locale au cœur du Ségala. Menu du jour, pâtisseries maison, burgers le vendredi soir et samedi midi.">
+<meta property="og:image" content="facade.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#5C3D2E">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌾</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --wheat: #F5E6C8;
+    --wheat-light: #FAF3E6;
+    --wheat-dark: #E8D5A8;
+    --straw: #C9A96E;
+    --straw-dark: #A67C52;
+    --earth: #5C3D2E;
+    --earth-light: #7A5A4A;
+    --sage: #6B7B5E;
+    --sage-light: #8A9A7A;
+    --cream: #FFFDF7;
+    --charcoal: #2C2420;
+    --terracotta: #C07850;
+    --terracotta-muted: #B8896E;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Lora', Georgia, serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(255, 253, 247, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--wheat-dark);
+    transition: box-shadow 0.3s;
+  }
+  nav.scrolled { box-shadow: 0 2px 20px rgba(92, 61, 46, 0.08); }
+  nav .nav-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.8rem 2rem;
+  }
+  nav .brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem; font-weight: 700; color: var(--earth);
+    text-decoration: none; letter-spacing: -0.02em;
+  }
+  nav .brand span { color: var(--straw); }
+  nav ul {
+    list-style: none; display: flex; gap: 2rem;
+  }
+  nav ul a {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem; font-weight: 500; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--earth-light);
+    text-decoration: none; transition: color 0.3s;
+  }
+  nav ul a:hover { color: var(--terracotta); }
+  nav ul a.active { color: var(--terracotta); }
+
+  .cta-phone {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem; font-weight: 600;
+    color: var(--cream);
+    background: var(--earth);
+    padding: 0.55rem 1.2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+  }
+  .cta-phone:hover { background: var(--straw-dark); transform: translateY(-1px); }
+  .cta-phone svg { width: 14px; height: 14px; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    background: url('facade.jpg') center/cover no-repeat;
+    padding: 8rem 2rem 5rem;
+    position: relative;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(44,36,32,0.45) 0%,
+      rgba(44,36,32,0.55) 40%,
+      rgba(44,36,32,0.7) 100%
+    );
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 700px; }
+
+  .hero-badge {
+    display: inline-block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.2em; color: var(--wheat-light);
+    border: 1px solid rgba(245,230,200,0.4);
+    padding: 0.4rem 1.2rem; border-radius: 50px;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    font-weight: 700; line-height: 1.1;
+    color: var(--cream);
+    margin-bottom: 0.3rem;
+    animation: fadeUp 0.8s 0.15s ease both;
+  }
+  .hero h1 em {
+    font-style: italic; color: var(--wheat);
+    display: block; font-size: 0.55em;
+    margin-top: 0.3rem;
+  }
+
+  .hero-divider {
+    width: 60px; height: 2px;
+    background: var(--straw);
+    margin: 1.5rem auto;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+
+  .hero p {
+    font-size: 1.1rem; color: rgba(245,230,200,0.85);
+    max-width: 520px; margin: 0 auto 2.5rem;
+    animation: fadeUp 0.8s 0.4s ease both;
+  }
+
+  .hero-actions {
+    display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    animation: fadeUp 0.8s 0.55s ease both;
+  }
+  .btn-primary {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem; font-weight: 600;
+    color: var(--cream); background: var(--earth);
+    padding: 0.85rem 2rem; border-radius: 50px;
+    text-decoration: none; transition: all 0.3s;
+    border: 2px solid var(--earth);
+  }
+  .btn-primary:hover { background: var(--straw-dark); border-color: var(--straw-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(92,61,46,0.15); }
+  .btn-secondary {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem; font-weight: 600;
+    color: var(--cream); background: transparent;
+    padding: 0.85rem 2rem; border-radius: 50px;
+    text-decoration: none; transition: all 0.3s;
+    border: 2px solid rgba(245,230,200,0.5);
+  }
+  .btn-secondary:hover { border-color: var(--wheat); color: var(--wheat); }
+
+  /* ── SECTIONS ── */
+  section { padding: 5rem 2rem; }
+  .container { max-width: 1100px; margin: 0 auto; }
+
+  .section-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.2em; color: var(--sage);
+    margin-bottom: 0.8rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    font-weight: 700; color: var(--earth);
+    margin-bottom: 1rem; line-height: 1.15;
+  }
+
+  /* ── ABOUT ── */
+  .about { background: var(--wheat-light); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+    align-items: center;
+  }
+  .about-image {
+    aspect-ratio: 4/5; border-radius: 12px; overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(92,61,46,0.12);
+  }
+  .about-image img {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+  .about-image::after {
+    content: ''; position: absolute; inset: 0;
+    border: 1px solid rgba(201,169,110,0.3);
+    border-radius: 12px;
+  }
+  .about-text p { margin-bottom: 1.2rem; color: var(--earth-light); font-size: 1.02rem; }
+  .about-text p strong { color: var(--earth); }
+
+  .features {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem;
+    margin-top: 2rem;
+  }
+  .feature {
+    background: var(--cream);
+    padding: 1.2rem;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid var(--wheat-dark);
+  }
+  .feature-icon {
+    width: 36px; height: 36px; margin: 0 auto 0.6rem;
+    color: var(--straw-dark);
+  }
+  .feature h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--earth);
+  }
+
+  /* ── PATISSERIE BANNER ── */
+  .patisserie-banner {
+    position: relative;
+    height: 380px;
+    overflow: hidden;
+  }
+  .patisserie-banner img {
+    width: 100%; height: 100%; object-fit: cover;
+    object-position: center 40%;
+  }
+  .patisserie-banner::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      to right,
+      rgba(44,36,32,0.6) 0%,
+      rgba(44,36,32,0.2) 40%,
+      rgba(44,36,32,0.2) 60%,
+      rgba(44,36,32,0.6) 100%
+    );
+  }
+  .patisserie-banner .banner-text {
+    position: absolute; inset: 0; z-index: 1;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center; padding: 2rem;
+  }
+  .patisserie-banner .banner-text .section-label { color: var(--wheat); }
+  .patisserie-banner .banner-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    color: var(--cream); font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .patisserie-banner .banner-text p {
+    font-size: 1rem; color: rgba(245,230,200,0.8);
+    max-width: 440px;
+  }
+  @media (max-width: 680px) {
+    .patisserie-banner { height: 280px; }
+  }
+
+  /* ── MENU ── */
+  .menu-section { background: var(--cream); }
+  .menu-header { text-align: center; margin-bottom: 3rem; }
+  .menu-header p { max-width: 500px; margin: 0 auto; color: var(--earth-light); }
+
+  .menu-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.2rem;
+  }
+  .menu-day {
+    background: var(--wheat-light);
+    border-radius: 12px;
+    padding: 1.8rem;
+    border: 1px solid var(--wheat-dark);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .menu-day:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(92,61,46,0.08);
+  }
+  .menu-day h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem; color: var(--earth);
+    margin-bottom: 0.2rem;
+  }
+  .menu-day .date {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem; text-transform: uppercase;
+    letter-spacing: 0.12em; color: var(--straw-dark);
+    margin-bottom: 1rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--wheat-dark);
+  }
+  .menu-day ul { list-style: none; }
+  .menu-day li {
+    padding: 0.35rem 0;
+    font-size: 0.95rem; color: var(--earth-light);
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .menu-day li::before {
+    content: '';
+    width: 4px; height: 4px; border-radius: 50%;
+    background: var(--straw);
+    flex-shrink: 0;
+  }
+  .menu-day li.highlight {
+    font-weight: 500; color: var(--earth);
+    font-style: italic;
+  }
+
+  /* ── INFO / CONTACT ── */
+  .info-section {
+    background:
+      linear-gradient(135deg, var(--earth) 0%, var(--charcoal) 100%);
+    color: var(--wheat-light);
+  }
+  .info-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3rem;
+  }
+  .info-block h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; color: var(--wheat);
+    margin-bottom: 1rem;
+  }
+  .info-block p, .info-block li {
+    font-size: 0.95rem; color: rgba(245,230,200,0.75);
+    line-height: 1.8;
+  }
+  .info-block ul { list-style: none; }
+  .info-block a {
+    color: var(--wheat); text-decoration: none;
+    border-bottom: 1px solid rgba(245,230,200,0.3);
+    transition: border-color 0.3s;
+  }
+  .info-block a:hover { border-color: var(--wheat); }
+
+  .hours-table { width: 100%; }
+  .hours-table td {
+    padding: 0.3rem 0;
+    font-size: 0.95rem;
+    color: rgba(245,230,200,0.75);
+  }
+  .hours-table td:last-child { text-align: right; }
+
+  .social-links {
+    display: flex; gap: 0.8rem; margin-top: 1.2rem;
+  }
+  .social-link {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    border: 1px solid rgba(245,230,200,0.25);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--wheat);
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .social-link:hover { background: rgba(245,230,200,0.1); border-color: var(--wheat); }
+  .social-link svg { width: 18px; height: 18px; }
+
+  /* ── MAP ── */
+  .map-section { padding: 0; }
+  .map-section iframe {
+    width: 100%; height: 350px; border: none;
+    filter: sepia(15%) saturate(85%);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--charcoal);
+    text-align: center;
+    padding: 2rem;
+  }
+  footer p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem; color: rgba(245,230,200,0.4);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── PRICE BADGE ── */
+  .price-badge {
+    display: inline-flex; align-items: baseline; gap: 0.4rem;
+    background: var(--earth);
+    color: var(--wheat);
+    padding: 0.6rem 1.5rem;
+    border-radius: 50px;
+    margin-top: 1.5rem;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .price-badge .price {
+    font-size: 1.6rem; font-weight: 700;
+    color: var(--cream);
+  }
+  .price-badge .price-label {
+    font-size: 0.78rem; font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── SCROLL INDICATOR ── */
+  .scroll-hint {
+    position: absolute; bottom: 2rem; left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    animation: fadeUp 0.8s 0.8s ease both;
+  }
+  .scroll-hint a {
+    display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+    text-decoration: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.68rem; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.15em;
+    color: rgba(245,230,200,0.5);
+    transition: color 0.3s;
+  }
+  .scroll-hint a:hover { color: rgba(245,230,200,0.8); }
+  .scroll-hint svg {
+    width: 20px; height: 20px;
+    animation: bounce 2s infinite;
+  }
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(6px); }
+    60% { transform: translateY(3px); }
+  }
+
+  /* ── SECTION DIVIDER ── */
+  .section-divider {
+    display: flex; align-items: center; justify-content: center;
+    gap: 1rem; padding: 2rem 0;
+  }
+  .section-divider::before,
+  .section-divider::after {
+    content: ''; height: 1px; width: 60px;
+    background: var(--wheat-dark);
+  }
+  .section-divider svg {
+    width: 20px; height: 20px;
+    color: var(--straw);
+  }
+
+  /* ── FLOATING MOBILE CTA ── */
+  .mobile-cta {
+    display: none;
+    position: fixed; bottom: 1.2rem; left: 50%;
+    transform: translateX(-50%);
+    z-index: 99;
+    background: var(--earth);
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem; font-weight: 600;
+    padding: 0.9rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 8px 32px rgba(44,36,32,0.35);
+    transition: background 0.3s, transform 0.2s;
+    gap: 0.5rem;
+    align-items: center;
+    white-space: nowrap;
+  }
+  .mobile-cta:hover { background: var(--straw-dark); }
+  .mobile-cta svg { width: 16px; height: 16px; }
+  @media (max-width: 680px) {
+    .mobile-cta { display: inline-flex; }
+    footer { padding-bottom: 5rem; }
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── MOBILE NAV ── */
+  .hamburger {
+    display: none; background: none; border: none;
+    cursor: pointer; padding: 4px;
+  }
+  .hamburger svg { width: 24px; height: 24px; color: var(--earth); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .info-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .features { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 680px) {
+    nav ul { display: none; }
+    .hamburger { display: block; }
+    nav ul.open {
+      display: flex; flex-direction: column;
+      position: absolute; top: 100%; left: 0; right: 0;
+      background: var(--cream);
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid var(--wheat-dark);
+      gap: 1rem;
+    }
+    .hero { min-height: 90vh; padding: 7rem 1.5rem 4rem; }
+    .features { grid-template-columns: 1fr; }
+    .menu-grid { grid-template-columns: 1fr; }
+    section { padding: 3.5rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#" class="brand">La Botte <span>de Paille</span></a>
+    <ul id="navLinks">
+      <li><a href="#about">Notre histoire</a></li>
+      <li><a href="#menu">La carte</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="tel:0618471960" class="cta-phone">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      06 18 47 19 60
+    </a>
+    <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Naucelle · Aveyron · Ségala</div>
+    <h1>La Botte de Paille <em>Cuisine fraîche & locale</em></h1>
+    <div class="hero-divider"></div>
+    <p>Prenez un siège, installez-vous à votre aise. Christophe vous propose des menus du jour travaillés avec des produits frais et locaux. Pâtisseries maison.</p>
+    <div class="hero-actions">
+      <a href="tel:0618471960" class="btn-primary">Réserver · 06 18 47 19 60</a>
+      <a href="#menu" class="btn-secondary">Voir la carte</a>
+    </div>
+    <div class="scroll-hint">
+      <a href="#about">
+        Découvrir
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image reveal">
+        <img src="team.jpg" alt="L'équipe de La Botte de Paille" loading="lazy">
+      </div>
+      <div class="about-text reveal">
+        <div class="section-label">Notre histoire</div>
+        <h2 class="section-title">Un cadre chaleureux<br>et convivial</h2>
+        <p><strong>Christophe</strong> vous accueille dans un espace où les produits frais et locaux sont à l'honneur. Chaque jour, un nouveau menu travaillé avec soin, des pâtisseries entièrement faites maison.</p>
+        <p>La complémentarité avec le <strong>magasin de producteurs</strong> voisin vous permet de découvrir toute la richesse du terroir aveyronnais que Christophe cuisine pour vous.</p>
+        <p>Burgers traditionnels à la carte le vendredi soir et le samedi midi.</p>
+        <div class="features">
+          <div class="feature">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            <h4>Produits locaux</h4>
+          </div>
+          <div class="feature">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z"/><path d="M12 7v5l3 3"/></svg>
+            <h4>Fait maison</h4>
+          </div>
+          <div class="feature">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3l-4 4-4-4"/></svg>
+            <h4>À emporter</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIVIDER -->
+<div class="section-divider">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 2v20M7 7c3 0 5 2 5 5M17 7c-3 0-5 2-5 5M9 4c2 0 3 1.5 3 3M15 4c-2 0-3 1.5-3 3"/></svg>
+</div>
+
+<!-- PATISSERIE -->
+<div class="patisserie-banner">
+  <img src="patisserie.jpg" alt="Pâtisseries maison de La Botte de Paille" loading="lazy">
+  <div class="banner-text">
+    <div class="section-label">100% fait maison</div>
+    <h2>Nos pâtisseries artisanales</h2>
+    <p>Toutes nos pâtisseries sont élaborées sur place avec des produits frais du terroir aveyronnais.</p>
+  </div>
+</div>
+
+<!-- MENU -->
+<section class="menu-section" id="menu">
+  <div class="container">
+    <div class="menu-header reveal">
+      <div class="section-label">Menu de la semaine</div>
+      <h2 class="section-title">Le menu du jour</h2>
+      <p>Exemple de semaine — le menu change chaque jour selon les arrivages et la saison.</p>
+      <div class="price-badge">
+        <span class="price">14€</span>
+        <span class="price-label">Entrée · Plat · Fromage · Dessert</span>
+      </div>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-day reveal">
+        <h3>Lundi</h3>
+        <div class="date">Entrée · Plat · Fromage · Dessert</div>
+        <ul>
+          <li>Charcuterie</li>
+          <li class="highlight">Paupiette à la crème, coquillettes</li>
+          <li>Fromage</li>
+          <li>Dessert du jour</li>
+        </ul>
+      </div>
+      <div class="menu-day reveal">
+        <h3>Mardi</h3>
+        <div class="date">Entrée · Plat · Fromage · Dessert</div>
+        <ul>
+          <li>Salade composée</li>
+          <li class="highlight">Sauté de dinde à la tomate, riz</li>
+          <li>Fromage</li>
+          <li>Dessert du jour</li>
+        </ul>
+      </div>
+      <div class="menu-day reveal">
+        <h3>Mercredi</h3>
+        <div class="date">Entrée · Plat · Fromage · Dessert</div>
+        <ul>
+          <li>Bruschetta fraîcheur</li>
+          <li class="highlight">Brandade de morue</li>
+          <li>Fromage</li>
+          <li>Dessert du jour</li>
+        </ul>
+      </div>
+      <div class="menu-day reveal">
+        <h3>Jeudi</h3>
+        <div class="date">Entrée · Plat · Fromage · Dessert</div>
+        <ul>
+          <li>Salade de pâtes</li>
+          <li class="highlight">Manchon de canard, haricots verts</li>
+          <li>Fromage</li>
+          <li>Dessert du jour</li>
+        </ul>
+      </div>
+      <div class="menu-day reveal">
+        <h3>Vendredi</h3>
+        <div class="date">Entrée · Plat · Fromage · Dessert</div>
+        <ul>
+          <li>Charcuterie</li>
+          <li class="highlight">Légumes farcis</li>
+          <li>Fromage</li>
+          <li>Dessert du jour</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT / INFO -->
+<section class="info-section" id="contact">
+  <div class="container">
+    <div class="info-grid">
+      <div class="info-block reveal">
+        <h3>Nous trouver</h3>
+        <p>
+          Z.I. de l'Issart<br>
+          Naucelle-Gare<br>
+          12800 Naucelle<br>
+          Aveyron, Occitanie
+        </p>
+        <p style="margin-top:1rem;">
+          <a href="tel:0618471960">06 18 47 19 60</a>
+        </p>
+      </div>
+      <div class="info-block reveal">
+        <h3>Horaires</h3>
+        <table class="hours-table">
+          <tr><td>Lundi – Vendredi</td><td>7h – 14h</td></tr>
+          <tr><td>Vendredi soir</td><td>Burgers</td></tr>
+          <tr><td>Samedi midi</td><td>Burgers</td></tr>
+          <tr><td>Samedi soir</td><td>Fermé</td></tr>
+          <tr><td>Dimanche</td><td>Fermé</td></tr>
+        </table>
+      </div>
+      <div class="info-block reveal">
+        <h3>Services</h3>
+        <ul>
+          <li>Terrasse extérieure</li>
+          <li>Plats à emporter</li>
+          <li>Accès handicapés</li>
+          <li>Animaux acceptés</li>
+          <li>Wifi gratuit</li>
+        </ul>
+        <div class="social-links">
+          <a href="https://www.facebook.com/labottedepaille12/" target="_blank" class="social-link" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/labottedepaille12/" target="_blank" class="social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<div class="map-section">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2900!2d2.3486!3d44.1936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12ad91b8e6a0f58d%3A0x31b8d2a4f5d6e2a0!2sNaucelle-Gare%2C+12800+Naucelle!5e0!3m2!1sfr!2sfr!4v1700000000000"
+    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+    title="Localisation La Botte de Paille">
+  </iframe>
+</div>
+
+<!-- FLOATING MOBILE CTA -->
+<a href="tel:0618471960" class="mobile-cta">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+  Réserver · 06 18 47 19 60
+</a>
+
+<!-- FOOTER -->
+<footer>
+  <p>La Botte de Paille · Naucelle-Gare · 12800 Naucelle · Aveyron</p>
+  <p style="margin-top:0.4rem; font-size:0.68rem;">© 2025 La Botte de Paille. Tous droits réservés.</p>
+</footer>
+
+<script>
+// Nav scroll effect
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Reveal on scroll
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 100);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+reveals.forEach(el => observer.observe(el));
+
+// Close mobile menu on link click
+document.querySelectorAll('#navLinks a').forEach(a => {
+  a.addEventListener('click', () => {
+    document.getElementById('navLinks').classList.remove('open');
+  });
+});
+
+// Active nav link on scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('#navLinks a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 200) current = s.getAttribute('id');
+  });
+  navLinks.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+});
+</script>
+</body>
+</html>
