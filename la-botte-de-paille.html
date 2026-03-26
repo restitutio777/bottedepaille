@@ -9,44 +9,46 @@
 <meta property="og:description" content="Cuisine fraîche & locale au cœur du Ségala. Menu du jour, pâtisseries maison, burgers le vendredi soir et samedi midi.">
 <meta property="og:image" content="facade.jpg">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#1B3A2A">
+<meta name="theme-color" content="#2A2A2A">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌾</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    /* Greens — neon sign & plants */
-    --green-deep: #1B3A2A;
-    --green: #3A6B4A;
-    --green-light: #5A8A68;
-    --green-muted: #6B8B72;
+    /* Gold / Sommer — Fassade & warmes Licht */
+    --gold: #B8943E;
+    --gold-light: #D4B96A;
+    --gold-pale: #E8DAAF;
+    --gold-wash: #F2ECDA;
 
-    /* Wood tones — pine interior */
-    --wood: #C4A46A;
-    --wood-light: #D9C499;
+    /* Holz — Kiefer Interieur */
+    --wood: #C9A86C;
+    --wood-light: #DECA9E;
     --wood-pale: #EDE4D0;
 
-    /* Neutrals — charcoal chairs, concrete floor */
+    /* Grautöne — Stühle, Beton, Struktur */
     --charcoal: #2A2A2A;
     --gray-dark: #3D3D3D;
     --gray: #6B6B6B;
     --gray-light: #9A9A9A;
-    --cream: #FAFAF7;
-    --cream-warm: #F5F2EC;
-    --warm-white: #F0EDE5;
+    --gray-pale: #D5D3CE;
+
+    /* Neutrale Basis */
+    --cream: #FAFAF6;
+    --cream-warm: #F5F1E8;
 
     /* Legacy aliases */
     --wheat: var(--wood-pale);
     --wheat-light: var(--cream-warm);
     --wheat-dark: var(--wood-light);
-    --straw: var(--wood);
-    --straw-dark: var(--green);
+    --straw: var(--gold);
+    --straw-dark: var(--gold);
     --earth: var(--charcoal);
     --earth-light: var(--gray);
-    --sage: var(--green);
-    --sage-light: var(--green-light);
-    --terracotta: var(--green);
-    --terracotta-muted: var(--green-muted);
+    --sage: var(--gray);
+    --sage-light: var(--gray-light);
+    --terracotta: var(--gold);
+    --terracotta-muted: var(--gold-light);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -80,7 +82,7 @@
     font-size: 1.25rem; font-weight: 700; color: var(--earth);
     text-decoration: none; letter-spacing: -0.02em;
   }
-  nav .brand span { color: var(--green); }
+  nav .brand span { color: var(--gold); }
   nav ul {
     list-style: none; display: flex; gap: 2rem;
   }
@@ -126,9 +128,9 @@
     position: absolute; inset: 0; z-index: 1;
     background: linear-gradient(
       to bottom,
-      rgba(42,42,42,0.4) 0%,
-      rgba(27,58,42,0.35) 50%,
-      rgba(42,42,42,0.7) 100%
+      rgba(42,42,42,0.35) 0%,
+      rgba(42,42,42,0.3) 50%,
+      rgba(42,42,42,0.65) 100%
     );
   }
   .hero-content { position: relative; z-index: 2; max-width: 700px; }
@@ -160,7 +162,7 @@
 
   .hero-divider {
     width: 60px; height: 2px;
-    background: var(--green);
+    background: var(--gold);
     margin: 1.5rem auto;
     animation: fadeUp 0.8s 0.3s ease both;
   }
@@ -282,7 +284,7 @@
     align-items: center; justify-content: center;
     text-align: center; padding: 2rem;
   }
-  .patisserie-banner .banner-text .section-label { color: var(--green-light); }
+  .patisserie-banner .banner-text .section-label { color: var(--gold-light); }
   .patisserie-banner .banner-text h2 {
     font-family: 'Playfair Display', serif;
     font-size: clamp(1.6rem, 3vw, 2.2rem);
@@ -418,7 +420,7 @@
   /* ── PRICE BADGE ── */
   .price-badge {
     display: inline-flex; align-items: baseline; gap: 0.4rem;
-    background: var(--green-deep);
+    background: var(--charcoal);
     color: rgba(255,255,255,0.8);
     padding: 0.6rem 1.5rem;
     border-radius: 50px;
