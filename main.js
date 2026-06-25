@@ -81,6 +81,26 @@
     });
   }
 
+  /* ---- Mobile menu ---- */
+  var toggle = document.getElementById('menuToggle');
+  var nav = document.getElementById('nav');
+  if (toggle && nav) {
+    var setMenu = function (open) {
+      document.body.classList.toggle('menu-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    };
+    toggle.addEventListener('click', function () {
+      setMenu(!document.body.classList.contains('menu-open'));
+    });
+    nav.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') setMenu(false);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && document.body.classList.contains('menu-open')) setMenu(false);
+    });
+  }
+
   /* ---- Contact form (no backend yet) ---- */
   var form = document.querySelector('.contact-form');
   if (form) {
