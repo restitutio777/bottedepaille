@@ -83,17 +83,18 @@
 
   /* ---- Mobile menu ---- */
   var toggle = document.getElementById('menuToggle');
-  var nav = document.getElementById('nav');
-  if (toggle && nav) {
+  var mobileNav = document.getElementById('mobileNav');
+  if (toggle && mobileNav) {
     var setMenu = function (open) {
       document.body.classList.toggle('menu-open', open);
       toggle.setAttribute('aria-expanded', String(open));
       toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      mobileNav.setAttribute('aria-hidden', String(!open));
     };
     toggle.addEventListener('click', function () {
       setMenu(!document.body.classList.contains('menu-open'));
     });
-    nav.addEventListener('click', function (e) {
+    mobileNav.addEventListener('click', function (e) {
       if (e.target.tagName === 'A') setMenu(false);
     });
     document.addEventListener('keydown', function (e) {

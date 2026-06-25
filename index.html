@@ -26,17 +26,29 @@
     <span class="brand-name">Élise Margaux</span>
     <span class="brand-sub">Photography</span>
   </a>
-  <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
-    <span></span><span></span>
-  </button>
-  <nav class="nav" id="nav" aria-label="Primary">
+  <nav class="nav" aria-label="Primary">
     <a href="#about">About</a>
     <a href="#work">Stories</a>
     <a href="#experience">The Experience</a>
     <a href="#journal">Journal</a>
     <a href="#contact" class="nav-cta">Inquire</a>
   </nav>
+  <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+    <span></span><span></span>
+  </button>
 </header>
+
+<!-- Mobile menu overlay — body-level so it is never trapped by the header's
+     backdrop-filter containing block -->
+<div class="mobile-nav" id="mobileNav" aria-hidden="true">
+  <nav aria-label="Mobile">
+    <a href="#about">About</a>
+    <a href="#work">Stories</a>
+    <a href="#experience">The Experience</a>
+    <a href="#journal">Journal</a>
+    <a href="#contact" class="nav-cta">Inquire</a>
+  </nav>
+</div>
 
 <main id="top">
 
