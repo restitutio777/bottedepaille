@@ -73,8 +73,8 @@ h1, h2, h3 { margin: 0; font-family: var(--display); font-weight: 300; }
 [data-hover-zoom] { transition: transform 1.5s var(--ease); will-change: transform; }
 figure:hover [data-hover-zoom] { transform: scale(1.04); }
 
-/* Image warmth — quiet, filmic */
-.hero-image img { filter: grayscale(100%) contrast(1.02); }
+/* Image warmth — quiet, filmic — applied uniformly to every photo */
+.harch .arch img,
 .about-image img,
 .story-image img,
 .post-image img { filter: saturate(0.78) contrast(1.02) brightness(1.02); }
@@ -97,19 +97,6 @@ figure:hover [data-hover-zoom] { transform: scale(1.04); }
   transition: transform 700ms var(--ease);
 }
 .link-line:hover::after { transform: scaleX(1); }
-
-/* ───────── Custom cursor ───────── */
-.cursor {
-  position: fixed; top: 0; left: 0; z-index: 999;
-  width: 28px; height: 28px; margin: -14px 0 0 -14px;
-  border: 1px solid var(--champagne); border-radius: 50%;
-  pointer-events: none;
-  transition: transform 320ms var(--ease), opacity 320ms var(--ease),
-              background-color 320ms var(--ease), border-color 320ms var(--ease);
-  mix-blend-mode: multiply; opacity: 0;
-}
-.cursor.is-visible { opacity: 1; }
-.cursor.is-hover { transform: scale(2.1); background: rgba(199,184,167,0.18); }
 
 /* ───────── Header ───────── */
 .site-header {
@@ -272,10 +259,10 @@ body.menu-open .menu-toggle span:nth-child(2) { transform: rotate(-45deg); }
 
 /* ───────── Signature work ───────── */
 .work { padding: var(--pad-section) var(--gutter); }
-.work-head { margin-bottom: clamp(48px, 8vw, 110px); max-width: 60ch; }
+.work-head { margin-bottom: clamp(44px, 7vw, 92px); max-width: 60ch; }
 .work-title, .exp-title, .journal-title {
-  font-size: clamp(2.4rem, 6vw, 5.2rem);
-  line-height: 0.95; letter-spacing: -0.03em;
+  font-size: clamp(2.3rem, 5.4vw, 4.6rem);
+  line-height: 0.98; letter-spacing: -0.03em;
 }
 .stories { list-style: none; margin: 0; padding: 0; }
 .story {
@@ -306,7 +293,7 @@ body.menu-open .menu-toggle span:nth-child(2) { transform: rotate(-45deg); }
   padding: var(--pad-section) var(--gutter);
   background: var(--stone);
 }
-.exp-head { margin-bottom: clamp(48px, 8vw, 100px); }
+.exp-head { margin-bottom: clamp(44px, 7vw, 92px); }
 .timeline { list-style: none; margin: 0; padding: 0; }
 .phase {
   display: grid;
@@ -319,7 +306,7 @@ body.menu-open .menu-toggle span:nth-child(2) { transform: rotate(-45deg); }
 .phase:last-child { border-bottom: 1px solid rgba(34,34,34,0.12); }
 .phase-no {
   font-family: var(--display); font-weight: 300;
-  font-size: clamp(3.4rem, 9vw, 8rem); line-height: 0.8;
+  font-size: clamp(3rem, 7.5vw, 6.5rem); line-height: 0.8;
   color: var(--champagne); letter-spacing: -0.04em;
 }
 .phase-body h3 {
@@ -329,13 +316,13 @@ body.menu-open .menu-toggle span:nth-child(2) { transform: rotate(-45deg); }
 
 /* ───────── Testimonial ───────── */
 .testimonial {
-  min-height: 80svh; display: grid; place-items: center;
+  min-height: 60svh; display: grid; place-items: center;
   padding: var(--pad-section) var(--gutter);
 }
-.testimonial blockquote { margin: 0; text-align: center; max-width: 20ch; }
+.testimonial blockquote { margin: 0; text-align: center; max-width: 24ch; }
 .quote {
   font-family: var(--display); font-weight: 300;
-  font-size: clamp(2.3rem, 5.4vw, 4.8rem); line-height: 1.1; letter-spacing: -0.02em;
+  font-size: clamp(1.9rem, 4vw, 3.4rem); line-height: 1.18; letter-spacing: -0.01em;
   color: var(--charcoal); margin: 0 0 2.2rem;
 }
 .quote .italic { color: var(--champagne); }
@@ -346,7 +333,7 @@ body.menu-open .menu-toggle span:nth-child(2) { transform: rotate(-45deg); }
 
 /* ───────── Journal ───────── */
 .journal { padding: var(--pad-section) var(--gutter); }
-.journal-head { margin-bottom: clamp(48px, 8vw, 90px); }
+.journal-head { margin-bottom: clamp(44px, 7vw, 92px); }
 .journal-grid {
   display: grid; grid-template-columns: repeat(4, 1fr);
   gap: clamp(22px, 3vw, 44px);
@@ -369,7 +356,7 @@ body.menu-open .menu-toggle span:nth-child(2) { transform: rotate(-45deg); }
 }
 .contact-inner { max-width: 720px; margin: 0 auto; text-align: center; }
 .contact-title {
-  font-size: clamp(3rem, 9vw, 7.5rem); line-height: 0.9; letter-spacing: -0.03em;
+  font-size: clamp(2.6rem, 6vw, 5rem); line-height: 0.95; letter-spacing: -0.03em;
   margin-bottom: clamp(40px, 6vw, 70px);
 }
 .contact-form { text-align: left; }
@@ -501,7 +488,6 @@ body.menu-open .menu-toggle span:nth-child(2) { transform: rotate(-45deg); }
   .post-image { aspect-ratio: 4 / 5; }
   .phase { grid-template-columns: 1fr; gap: 0.3rem; padding: clamp(30px, 8vw, 44px) 0; }
   .phase-no { font-size: clamp(3rem, 16vw, 4.6rem); }
-  .cursor { display: none; }
   /* keep the longest line ("to live forever.") inside the viewport */
   .hero-title { font-size: clamp(2.3rem, 11vw, 3.7rem); margin: 1.2rem 0; }
   .contact-title { font-size: clamp(2.8rem, 15vw, 5rem); }
@@ -527,5 +513,4 @@ body.menu-open .menu-toggle span:nth-child(2) { transform: rotate(-45deg); }
   * { animation: none !important; }
   .reveal { opacity: 1; transform: none; transition: none; }
   html { scroll-behavior: auto; }
-  .veil { animation: none; }
 }

@@ -35,52 +35,6 @@
     revealEls.forEach(function (el) { el.classList.add('in'); });
   }
 
-  /* ---- Gentle parallax on tagged images ---- */
-  var parallaxEls = Array.prototype.slice.call(document.querySelectorAll('[data-parallax]'));
-  if (parallaxEls.length && !reduceMotion) {
-    var ticking = false;
-    var apply = function () {
-      var vh = window.innerHeight;
-      parallaxEls.forEach(function (el) {
-        var rect = el.getBoundingClientRect();
-        var progress = (rect.top + rect.height / 2 - vh / 2) / vh; // -~1..1
-        var amt = parseFloat(el.getAttribute('data-parallax')) || 0.06;
-        el.style.transform = 'translate3d(0,' + (-progress * amt * 100).toFixed(2) + 'px,0)';
-      });
-      ticking = false;
-    };
-    window.addEventListener('scroll', function () {
-      if (!ticking) { window.requestAnimationFrame(apply); ticking = true; }
-    }, { passive: true });
-    apply();
-  }
-
-  /* ---- Custom cursor (fine pointers only) ---- */
-  var fine = window.matchMedia('(pointer: fine)').matches;
-  var cursor = document.querySelector('.cursor');
-  if (cursor && fine && !reduceMotion) {
-    var cx = 0, cy = 0, tx = 0, ty = 0, raf;
-    document.addEventListener('mousemove', function (e) {
-      tx = e.clientX; ty = e.clientY;
-      cursor.classList.add('is-visible');
-      if (!raf) loop();
-    });
-    document.addEventListener('mouseleave', function () { cursor.classList.remove('is-visible'); });
-    function loop() {
-      cx += (tx - cx) * 0.18; cy += (ty - cy) * 0.18;
-      // position via left/top so `transform` stays free for the hover scale
-      cursor.style.left = cx + 'px';
-      cursor.style.top = cy + 'px';
-      raf = (Math.abs(tx - cx) > 0.1 || Math.abs(ty - cy) > 0.1) ? requestAnimationFrame(loop) : null;
-    }
-    // grow near imagery & interactive elements
-    var hot = document.querySelectorAll('figure, a, button, input, textarea');
-    hot.forEach(function (el) {
-      el.addEventListener('mouseenter', function () { cursor.classList.add('is-hover'); });
-      el.addEventListener('mouseleave', function () { cursor.classList.remove('is-hover'); });
-    });
-  }
-
   /* ---- Mobile menu ---- */
   var toggle = document.getElementById('menuToggle');
   var mobileNav = document.getElementById('mobileNav');
