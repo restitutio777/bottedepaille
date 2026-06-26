@@ -171,9 +171,9 @@ body.menu-open .menu-toggle span:nth-child(2) { transform: rotate(-45deg); }
 .hero {
   min-height: 100svh;
   display: grid;
-  grid-template-columns: minmax(min-content, 0.92fr) 1.5fr;
+  grid-template-columns: minmax(min-content, 0.86fr) 1.55fr;
   align-items: center;
-  gap: clamp(32px, 5vw, 80px);
+  gap: clamp(28px, 3.5vw, 56px);
   padding: clamp(116px, 15vh, 180px) var(--gutter) var(--pad-section);
   position: relative;
 }
@@ -219,7 +219,7 @@ body.menu-open .menu-toggle span:nth-child(2) { transform: rotate(-45deg); }
 .hero-arches {
   list-style: none; margin: 0; padding: 0;
   display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: clamp(14px, 1.8vw, 30px);
+  gap: clamp(10px, 1.3vw, 20px);
   align-items: start;
 }
 .harch--drop { margin-top: clamp(20px, 4vw, 56px); }
@@ -332,11 +332,11 @@ body.menu-open .menu-toggle span:nth-child(2) { transform: rotate(-45deg); }
   min-height: 80svh; display: grid; place-items: center;
   padding: var(--pad-section) var(--gutter);
 }
-.testimonial blockquote { margin: 0; text-align: center; max-width: 22ch; }
+.testimonial blockquote { margin: 0; text-align: center; max-width: 20ch; }
 .quote {
   font-family: var(--display); font-weight: 300;
-  font-size: clamp(2.6rem, 7vw, 6rem); line-height: 1.04; letter-spacing: -0.02em;
-  color: var(--charcoal); margin: 0 0 2rem;
+  font-size: clamp(2.3rem, 5.4vw, 4.8rem); line-height: 1.1; letter-spacing: -0.02em;
+  color: var(--charcoal); margin: 0 0 2.2rem;
 }
 .quote .italic { color: var(--champagne); }
 .testimonial cite {
@@ -497,38 +497,18 @@ body.menu-open .menu-toggle span:nth-child(2) { transform: rotate(-45deg); }
   .journal-grid { grid-template-columns: repeat(2, 1fr); gap: clamp(20px, 4vw, 36px); }
 }
 @media (max-width: 560px) {
-  /* Trim the gallery-grade whitespace so phone sections don't feel hollow */
-  :root { --pad-section: clamp(56px, 13vw, 96px); }
-
   .journal-grid { grid-template-columns: 1fr; gap: clamp(28px, 9vw, 44px); }
   .post-image { aspect-ratio: 4 / 5; }
   .phase { grid-template-columns: 1fr; gap: 0.3rem; padding: clamp(30px, 8vw, 44px) 0; }
   .phase-no { font-size: clamp(3rem, 16vw, 4.6rem); }
   .cursor { display: none; }
-
-  /* Hero: pull the triptych up so a photo peeks above the fold and the
-     seal no longer floats alone in an empty band */
-  .hero {
-    gap: clamp(22px, 6vw, 34px);
-    padding: clamp(100px, 15vh, 132px) var(--gutter) clamp(40px, 10vw, 64px);
-  }
   /* keep the longest line ("to live forever.") inside the viewport */
   .hero-title { font-size: clamp(2.3rem, 11vw, 3.7rem); margin: 1.2rem 0; }
-  .hero-lede { font-size: 0.95rem; line-height: 1.75; }
   .contact-title { font-size: clamp(2.8rem, 15vw, 5rem); }
-
-  /* Smaller wax seal so it reads as a mark, not a void-filling band */
-  .seal {
-    width: 88px; height: 88px;
-    margin-top: clamp(1.1rem, 4vw, 1.6rem);
-  }
-  .seal-mark { font-size: 1.25rem; }
-  .seal::after { inset: 10px; }
-
   /* On phones, swap the cramped 3-up for a large swipeable carousel */
   .hero-arches {
     display: flex; grid-template-columns: none;
-    gap: 14px;
+    gap: 16px;
     overflow-x: auto; scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch; scrollbar-width: none;
     margin-inline: calc(-1 * var(--gutter));
@@ -536,8 +516,8 @@ body.menu-open .menu-toggle span:nth-child(2) { transform: rotate(-45deg); }
     scroll-padding-left: var(--gutter);
   }
   .hero-arches::-webkit-scrollbar { display: none; }
-  .harch { flex: 0 0 72%; scroll-snap-align: start; margin-top: 0; }
-  .harch .arch { aspect-ratio: 1 / 1.4; }
+  .harch { flex: 0 0 66%; scroll-snap-align: start; margin-top: 0; }
+  .harch .arch { aspect-ratio: 1 / 1.45; }
   .harch-no { font-size: 1.7rem; margin-top: 0.85rem; }
   .harch-cap { font-size: 0.62rem; letter-spacing: 0.18em; line-height: 1.3; }
 }
