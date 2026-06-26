@@ -167,47 +167,76 @@ figure:hover [data-hover-zoom] { transform: scale(1.04); }
 body.menu-open .menu-toggle span:nth-child(1) { transform: rotate(45deg); }
 body.menu-open .menu-toggle span:nth-child(2) { transform: rotate(-45deg); }
 
-/* ───────── Hero ───────── */
+/* ───────── Hero — stacked headline + three arches ───────── */
 .hero {
   min-height: 100svh;
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
+  grid-template-columns: minmax(min-content, 0.92fr) 1.5fr;
   align-items: center;
-  gap: var(--gutter);
-  padding: clamp(120px, 16vh, 200px) var(--gutter) var(--pad-section);
+  gap: clamp(32px, 5vw, 80px);
+  padding: clamp(116px, 15vh, 180px) var(--gutter) var(--pad-section);
   position: relative;
 }
-.hero-type { max-width: 40ch; }
+.hero-type { max-width: none; }
 .hero-title {
-  font-size: clamp(3.6rem, 10vw, 12rem);
+  font-size: clamp(2.6rem, 5.4vw, 5rem);
   font-weight: 300;
-  line-height: 0.85;
+  line-height: 0.9;
   letter-spacing: -0.03em;
   color: var(--charcoal);
-  margin: 1.6rem 0;
+  margin: 1.4rem 0;
 }
-.hero-title span { display: block; }
+.hero-title span { display: block; white-space: nowrap; }
 .hero-title .italic { color: var(--muted); }
 .hero-lede {
-  max-width: 34ch; color: var(--muted);
-  font-size: 1rem; line-height: 1.8;
+  max-width: 30ch; color: var(--muted);
+  font-size: 0.98rem; line-height: 1.8;
 }
-.hero-image {
-  position: relative;
-  aspect-ratio: 3 / 4;
-  max-height: 78vh;
-  justify-self: end;
-  width: 100%;
+
+/* Wax-seal badge */
+.seal {
+  position: relative; display: inline-grid; place-items: center;
+  width: 116px; height: 116px; margin-top: clamp(1.8rem, 4vw, 2.8rem);
+  text-decoration: none; color: var(--muted);
 }
-.veil {
-  position: absolute; inset: 0; z-index: 2; pointer-events: none;
-  background: linear-gradient(180deg, rgba(247,244,241,0.28) 0%, rgba(247,244,241,0) 30%);
-  mix-blend-mode: screen;
-  animation: veil 9s ease-in-out infinite alternate;
+.seal-ring { position: absolute; inset: 0; width: 100%; height: 100%;
+  animation: spin 26s linear infinite; }
+.seal-ring text {
+  font-family: var(--body); font-size: 8.4px; letter-spacing: 1.1px;
+  fill: var(--champagne); text-transform: uppercase;
 }
-@keyframes veil {
-  from { transform: translateY(-2%) scale(1.02); opacity: 0.55; }
-  to   { transform: translateY(2%)  scale(1.05); opacity: 0.85; }
+.seal-mark {
+  font-family: var(--display); font-style: italic; font-size: 1.5rem;
+  color: var(--charcoal); letter-spacing: 0.02em;
+}
+.seal::after {
+  content: ""; position: absolute; inset: 14px; border-radius: 50%;
+  border: 1px solid rgba(199,184,167,0.5);
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Three elongated arches */
+.hero-arches {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: clamp(14px, 1.8vw, 30px);
+  align-items: start;
+}
+.harch--drop { margin-top: clamp(20px, 4vw, 56px); }
+.harch-link { text-decoration: none; color: inherit; display: block; }
+.harch .arch {
+  aspect-ratio: 1 / 1.62;
+}
+.harch-no {
+  display: block; margin-top: 1rem;
+  font-family: var(--display); font-weight: 300;
+  font-size: clamp(1.5rem, 2.4vw, 2.3rem); line-height: 1;
+  color: var(--charcoal); letter-spacing: -0.01em;
+}
+.harch-cap {
+  margin: 0.45rem 0 0;
+  font-size: 0.66rem; letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--muted);
 }
 .scroll-hint {
   position: absolute; left: var(--gutter); bottom: 2.2rem;
@@ -438,18 +467,19 @@ body.menu-open .menu-toggle span:nth-child(2) { transform: rotate(-45deg); }
   body.menu-open { overflow: hidden; }
   body.menu-open .site-header { background: transparent; backdrop-filter: none; }
 
-  /* Hero — keep the elongated arch, tighten the rhythm */
+  /* Hero — stack the headline over the triptych */
   .hero {
-    grid-template-columns: 1fr; gap: clamp(28px, 7vw, 48px);
+    grid-template-columns: 1fr; gap: clamp(34px, 8vw, 56px);
     min-height: auto;
-    padding: clamp(120px, 22vh, 170px) var(--gutter) var(--pad-section);
+    padding: clamp(108px, 17vh, 148px) var(--gutter) var(--pad-section);
   }
   .hero-type { max-width: none; }
-  .hero-image {
-    justify-self: center; width: 100%; max-width: 380px;
-    max-height: none; aspect-ratio: 3 / 4;
-  }
+  .hero-title { font-size: clamp(2.6rem, 11vw, 4.4rem); }
   .hero-lede { max-width: 42ch; }
+  .seal { margin-top: 1.6rem; }
+  .harch--drop { margin-top: 0; }      /* align all three on mobile */
+  .harch-no { margin-top: 0.7rem; }
+  .harch-cap { letter-spacing: 0.14em; }
 
   .about { grid-template-columns: 1fr; gap: clamp(32px, 8vw, 56px); }
   .about-image { max-width: 420px; justify-self: center; width: 100%; }
@@ -475,6 +505,10 @@ body.menu-open .menu-toggle span:nth-child(2) { transform: rotate(-45deg); }
   /* keep the longest line ("to live forever.") inside the viewport */
   .hero-title { font-size: clamp(2.3rem, 11vw, 3.7rem); margin: 1.2rem 0; }
   .contact-title { font-size: clamp(2.8rem, 15vw, 5rem); }
+  /* triptych stays 3-up but tightens on small phones */
+  .hero-arches { gap: 9px; }
+  .harch-no { font-size: 1.25rem; margin-top: 0.55rem; }
+  .harch-cap { font-size: 0.55rem; letter-spacing: 0.08em; line-height: 1.3; }
 }
 
 /* ───────── Reduced motion ───────── */
