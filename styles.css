@@ -505,10 +505,21 @@ body.menu-open .menu-toggle span:nth-child(2) { transform: rotate(-45deg); }
   /* keep the longest line ("to live forever.") inside the viewport */
   .hero-title { font-size: clamp(2.3rem, 11vw, 3.7rem); margin: 1.2rem 0; }
   .contact-title { font-size: clamp(2.8rem, 15vw, 5rem); }
-  /* triptych stays 3-up but tightens on small phones */
-  .hero-arches { gap: 9px; }
-  .harch-no { font-size: 1.25rem; margin-top: 0.55rem; }
-  .harch-cap { font-size: 0.55rem; letter-spacing: 0.08em; line-height: 1.3; }
+  /* On phones, swap the cramped 3-up for a large swipeable carousel */
+  .hero-arches {
+    display: flex; grid-template-columns: none;
+    gap: 16px;
+    overflow-x: auto; scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch; scrollbar-width: none;
+    margin-inline: calc(-1 * var(--gutter));
+    padding-inline: var(--gutter);
+    scroll-padding-left: var(--gutter);
+  }
+  .hero-arches::-webkit-scrollbar { display: none; }
+  .harch { flex: 0 0 66%; scroll-snap-align: start; margin-top: 0; }
+  .harch .arch { aspect-ratio: 1 / 1.45; }
+  .harch-no { font-size: 1.7rem; margin-top: 0.85rem; }
+  .harch-cap { font-size: 0.62rem; letter-spacing: 0.18em; line-height: 1.3; }
 }
 
 /* ───────── Reduced motion ───────── */
