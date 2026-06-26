@@ -454,11 +454,14 @@ body.menu-open .menu-toggle span:nth-child(2) { transform: rotate(-45deg); }
   .about { grid-template-columns: 1fr; gap: clamp(32px, 8vw, 56px); }
   .about-image { max-width: 420px; justify-self: center; width: 100%; }
 
-  .story, .story--offset { grid-template-columns: 1fr; gap: 1.4rem; }
-  .story-image { max-width: 460px; width: 100%; }
+  .story, .story--offset {
+    grid-template-columns: 1fr; gap: 1.4rem; justify-items: center;
+  }
+  .story-image { max-width: 460px; width: 100%; justify-self: center; }
   .story--offset .story-image { order: 0; }
-  .story--offset .story-meta { order: 0; text-align: left; }
-  .story-meta { padding-bottom: 0; }
+  /* center every caption on mobile so offset & normal stories match */
+  .story-meta,
+  .story--offset .story-meta { order: 0; text-align: center; padding-bottom: 0; }
 
   .scroll-hint { display: none; }
   .journal-grid { grid-template-columns: repeat(2, 1fr); gap: clamp(20px, 4vw, 36px); }
